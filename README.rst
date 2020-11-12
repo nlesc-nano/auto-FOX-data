@@ -5,7 +5,7 @@
 
 
 ###################
-Auto-FOX Data 1.0.0
+Auto-FOX Data 0.1.0
 ###################
 
 A repository with MD data used by the `Auto-FOX <https://github.com/nlesc-nano/auto-FOX>`_ tests.

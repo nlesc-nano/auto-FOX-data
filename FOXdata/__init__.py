@@ -10,5 +10,5 @@ _ROOT = Path(__file__).parent
 ARMC_DIR = _ROOT / 'armc'
 ARMCPT_DIR = _ROOT / 'armcpt'
 
-__all__ = ['ARMC_DIR', 'ARMCPT_DIR', 'gather_xyz']
+__all__ = ['ARMC_DIR', 'ARMCPT_DIR']
 del Path, _ROOT

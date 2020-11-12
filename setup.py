@@ -45,7 +45,7 @@ setup(
         'python-3',
     ],
     classifiers=[
-        'Development Status :: 5 - Production/Stable',
+        'Development Status :: 1 - Planning',
         'Intended Audience :: Science/Research',
         'License :: OSI Approved :: GNU Lesser General Public License',
         'Natural Language :: English',
