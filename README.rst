@@ -1,3 +1,5 @@
+.. image:: https://github.com/nlesc-nano/auto-FOX-data/workflows/Build/badge.svg
+    :target: https://github.com/nlesc-nano/auto-FOX-data/actions?query=workflow%3ABuild
 .. image:: https://img.shields.io/badge/python-3-blue.svg
     :target: https://docs.python.org/3/
 
