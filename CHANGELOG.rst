@@ -6,6 +6,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to `Semantic Versioning <http://semver.org/>`_.
 
 
+1.1.1
+*****
+* Fixed the length of the ``"param_metadata"`` dataset.
+
+
 1.1.0
 *****
 * Added the new ``"param_metadata"`` dataset to the ``armc.hdf5`` files.
