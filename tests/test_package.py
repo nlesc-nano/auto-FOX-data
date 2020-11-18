@@ -13,24 +13,28 @@ def test_isdir() -> None:
         out = subprocess.run(f'python setup.py build', shell=True, check=True)
         out.check_returncode()
 
-        lib = DIST / 'lib'
-        sys.path.insert(1, str(lib))
+        lib = str(DIST / 'lib')
+        sys.path.insert(1, lib)
 
         from FOXdata import ARMC_DIR, ARMCPT_DIR
+        expected_length = {
+            ARMC_DIR: 101,
+            ARMCPT_DIR: 303,
+        }
+
         for root in (ARMC_DIR, ARMCPT_DIR):
+            folder_list = [root / f for f in os.listdir(root) if os.path.isdir(root /f)]
             assert os.path.isfile(root / 'armc.hdf5')
+            assert len(folder_list) == expected_length[root]
 
-            for _folder in os.listdir(root):
-                folder = root / _folder
-                if not os.path.isdir(folder):
-                    continue
-
+            for folder in folder_list:
                 for file in os.listdir(folder):
                     _, ext = os.path.splitext(file)
                     assert ext in {'.xyz', '.dill'}
+
     finally:
         if lib in sys.path:
-            i = sys.path.index(lib)
+            i = sys.path.index(lib)  # type: ignore[arg-type]
             del sys.path[i]
         if os.path.isdir(DIST):
-            pass  # shutil.rmtree(DIST)
+            shutil.rmtree(DIST)
