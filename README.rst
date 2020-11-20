@@ -6,7 +6,7 @@
     :target: https://docs.python.org/3/
 
 ###################
-Auto-FOX Data 1.1.2
+Auto-FOX Data 1.1.3
 ###################
 
 A repository with MD data used by the `Auto-FOX <https://github.com/nlesc-nano/auto-FOX>`_ tests.
