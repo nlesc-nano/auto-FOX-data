@@ -5,10 +5,14 @@ Change Log
 All notable changes to this project will be documented in this file.
 This project adheres to `Semantic Versioning <http://semver.org/>`_.
 
+1.1.4
+*****
+* Added the new ``validation`` group.
+
 
 1.1.3
 *****
-*  Fixed the ordering within the ARMCPT datasets.
+* Fixed the ordering within the ARMCPT datasets.
 
 
 1.1.2
