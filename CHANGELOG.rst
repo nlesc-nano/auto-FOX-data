@@ -5,6 +5,12 @@ Change Log
 All notable changes to this project will be documented in this file.
 This project adheres to `Semantic Versioning <http://semver.org/>`_.
 
+
+1.1.5
+*****
+* Added new data to the ``validation`` group.
+
+
 1.1.4
 *****
 * Added the new ``validation`` group.
