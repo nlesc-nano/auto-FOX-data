@@ -6,6 +6,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to `Semantic Versioning <http://semver.org/>`_.
 
 
+1.1.8
+*****
+* Fixed a wherein the ``param_metadata`` attributes were accidentally removed.
+
+
 1.1.7
 *****
 * Increase the dimensionality of the ``param_metadata`` dataset.
