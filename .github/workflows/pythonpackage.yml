@@ -17,11 +17,11 @@ jobs:
             fail-fast: false
             matrix:
                 os: [ubuntu-latest, macos-latest, windows-latest]
-                python-version: [3.6, 3.7, 3.8, 3.9]
+                python-version: ["3.7", "3.8", "3.9", "3.10"]
 
         steps:
             - name: Cancel Previous Runs
-              uses: styfle/cancel-workflow-action@0.6.0
+              uses: styfle/cancel-workflow-action@0.9.1
               with:
                 access_token: ${{ github.token }}
 
@@ -33,7 +33,9 @@ jobs:
                 python-version: ${{ matrix.python-version }}
 
             - name: Install dependencies
-              run: pip install .[test]
+              run: |
+                pip install --upgrade pip
+                pip install .[test]
 
             - name: Python info
               run: |

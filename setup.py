@@ -57,7 +57,12 @@ setup(
     ],
     python_requires='>=3.4',
     install_requires=[],
-    setup_requires=['pytest-runner'],
-    tests_require=['pytest'],
-    extras_require={'test': ['pytest']}
+    extras_require={'test': [
+        'pytest>=6.0',
+        'h5py',
+        'numpy',
+        'assertionlib>=2.2.0',
+        'pyyaml>=5.1',
+        'Nano-Utils>=2.0',
+    ]}
 )
