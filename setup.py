@@ -35,6 +35,7 @@ setup(
         'armcpt/*.hdf5',
         'armcpt/*/*.xyz',
         'armcpt/*/*.dill',
+        'py.typed',
     ]},
     include_package_data=True,
     license="GNU General Public License v3 or later",
