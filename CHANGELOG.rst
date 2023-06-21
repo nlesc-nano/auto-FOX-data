@@ -7,7 +7,9 @@ This project adheres to `Semantic Versioning <http://semver.org/>`_.
 
 1.2.0
 *****
-* Switch from setup.py to pyporject.toml
+* Switch from setup.py to pyproject.toml
+* Expand the CI
+* General misc maintenance
 
 
 1.1.8
