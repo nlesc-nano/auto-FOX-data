@@ -30,7 +30,7 @@ jobs:
         run: pip list
 
       - name: Build the package
-        run: python -m build --sdist --wheel
+        run: python -m build --wheel
 
       - name: Validate wheels
         run: |

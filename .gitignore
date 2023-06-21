@@ -24,6 +24,8 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
+*.dist-info
+Auto-FOX-Data-*
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -109,3 +111,6 @@ venv.bak/
 
 # Visual Studio Code
 .vscode/
+
+# Dynamically generated
+FOXdata/_version.py

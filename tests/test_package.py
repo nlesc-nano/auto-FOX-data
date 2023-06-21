@@ -3,7 +3,7 @@ from __future__ import annotations
 import os
 import re
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, NamedTuple
+from typing import Any, NamedTuple
 
 import h5py
 import yaml
@@ -14,9 +14,6 @@ from assertionlib import assertion
 
 from FOXdata import ARMC_DIR, ARMCPT_DIR
 
-if TYPE_CHECKING:
-    import _pytest
-
 
 class DSetTuple(NamedTuple):
     shape: tuple[int, ...]
@@ -24,7 +21,7 @@ class DSetTuple(NamedTuple):
 
 
 def load_h5py_data() -> dict[str, dict[str, DSetTuple]]:
-    with open(Path("tests") / "h5py_data.yaml", "r") as f:
+    with open(Path("tests") / "h5py_data.yaml", "r", encoding="utf8") as f:
         dct = yaml.load(f, Loader=yaml.SafeLoader)
     for sub_dict in dct.values():
         for k, v in sub_dict.items():
@@ -44,8 +41,8 @@ class TestPackage:
     def test_hdf5(self, name: str, path: Path, length: int) -> None:
         ref = H5PY_DICT[name]
         with h5py.File(path / "armc.hdf5", "r") as f:
-            assertion.eq(ref.keys(), RecursiveKeysView(f))
-            for name, dset in RecursiveItemsView(f):
+            assertion.eq(ref.keys(), RecursiveKeysView(f))  # type: ignore[abstract]
+            for name, dset in RecursiveItemsView(f):  # type: ignore[abstract]
                 assertion.eq(dset.shape, ref[name].shape, message=f"{name} shape")
                 assertion.eq(dset.dtype, ref[name].dtype, message=f"{name} dtype")
 

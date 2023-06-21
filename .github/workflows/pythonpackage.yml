@@ -14,18 +14,27 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
+defaults:
+  run:
+    shell: bash
+
+env:
+  PY_COLORS: '1'
+
 jobs:
-  build:
+  Tests:
     name: Python ${{ matrix.python-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.7", "3.8", "3.9", "3.10"]
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Set up Python ${{ matrix.python-version }} on ${{ matrix.os }}
         uses: actions/setup-python@v4
@@ -47,3 +56,35 @@ jobs:
 
       - name: Test with pytest
         run: pytest
+
+  Linting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python on ubuntu-latest
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install linters
+        run: pip install .[lint,test]
+
+      - name: Python info
+        run: |
+          which python
+          python --version
+
+      - name: Installed packages
+        run: pip list
+
+      - name: Run flake8
+        run: flake8 FOXdata tests
+
+      - name: Run mypy
+        run: mypy FOXdata tests
+
+      - name: Run pydocstyle
+        run: pydocstyle FOXdata
