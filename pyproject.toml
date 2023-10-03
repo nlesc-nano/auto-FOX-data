@@ -102,3 +102,6 @@ convention = "numpy"
 
 [tool.flake8]
 max-line-length = 100
+exclude = [
+    "FOXdata/_version.py ALL",
+]
